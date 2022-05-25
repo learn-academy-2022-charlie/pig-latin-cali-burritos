@@ -9,16 +9,17 @@ class App extends Component{
     this.state = {
       // "phrase" is the text entered by the user - right now there are test words hard coded to make the process of testing your code faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry",
+      phrase: "alpha through yummy squeal queen fry", // use string interpolation? 
       // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear."
     }
   }
 
   // The "myPigLatinCodeHere" function is where you will put your logic to convert the sentence entered by the user to Pig Latin
-
   myPigLatinCodeHere = () => {
+
     // the variable "userInput" will contain the text input from the user modified into an array of words
+
     // no need to change this variable
     let userInput = this.state.phrase.split(" ")
     console.log("userInput:", userInput)
@@ -34,7 +35,21 @@ class App extends Component{
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
+      let vowels = ['a', 'e', 'i', 'o', 'u'];
+      let newStr = "";
 
+      if (vowels.indexOf(userInput[0]) > -1) {
+        newStr = userInput + "way";
+        return newStr;
+    } else {
+      // .match() returns an array of all character index that match a regular expression/pattern
+        // Our pattern looks at any character that is a vowel. If there are no vowels, then we assign firstMatch the value of 0.
+
+      let firstMatch = userInput.match(['a', 'e', 'i', 'o', 'u']) || 0;
+        let vowel = userInput.indexOf(firstMatch[0]);
+        newStr = userInput.substring(vowel) + userInput.substring(0, vowel) + "ay";
+        return newStr;
+    }
       // Remember: console.log is your friend :)
 
 
@@ -99,7 +114,7 @@ class App extends Component{
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by ~Tio Jorge and Tio Frank~</footer>
       </>
     )
   }
