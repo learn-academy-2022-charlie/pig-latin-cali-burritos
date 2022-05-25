@@ -9,52 +9,70 @@ class App extends Component{
     this.state = {
       // "phrase" is the text entered by the user - right now there are test words hard coded to make the process of testing your code faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry", // use string interpolation? 
+      phrase: "alpha through yummy squeal queen fry",
       // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear."
     }
   }
 
   // The "myPigLatinCodeHere" function is where you will put your logic to convert the sentence entered by the user to Pig Latin
+
   myPigLatinCodeHere = () => {
-
     // the variable "userInput" will contain the text input from the user modified into an array of words
-
     // no need to change this variable
     let userInput = this.state.phrase.split(" ")
-    console.log("userInput:", userInput)
-
-    // now that we have an array of words, we can map over the array and access each word
+    
+      // console.log("userInput:", userInput)
+      // output --> ['alpha', 'through', 'yummy', 'squeal', 'queen', 'fry']
+    
+      // now that we have an array of words, we can map over the array and access each word
     let translatedWordsArray = userInput.map(currentWord => {
       // ACTION ITEM: use "currentWord" as a starting point for your code
-      console.log("currentWord:", currentWord)
+        console.log("currentWord:", currentWord)
 
+          // Added upper case
       let vowelsArray = currentWord.split("").filter(vowel => {
-        return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
+        return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u" === "A" || vowel === "E" || vowel === "I" || vowel === "O" || vowel === "U"
       })
+
+        //  and punctuation
+      // let punc = [".","?","!",",","\"","'"]
+        
       console.log("vowelsArray:", vowelsArray)
 
+      // if the index 0 of currentWord  
+
+        let hayWord = ""
+
+      // if words begin with a vowel, we want to add "way" to the end of it.
+
+      
+      if (currentWord.indexOf() === vowelsArray.indexOf()) {
+      hayWord = currentWord + "way";
+      return hayWord
+      } 
+
+      // } else (hayWord.indexOf(0) === vowelsArray.indexOf(0)) {
+      //   hayWord = currentWord + "way";
+      //   return hayWord;
+        
+      // }
+
+      // ### Rules of Pig Latin
+      // - For words beginning with a vowel, add "way" to the end.
+      // - For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
+      // - If the first consonants include "qu", move the "u" along with the "q". Don't forget about words like "squeal" where "qu" doesn't come first!
+      // - "y" is treated like a vowel in appropriate circumstances.
+
       // your code here!
-      let vowels = ['a', 'e', 'i', 'o', 'u'];
-      let newStr = "";
 
-      if (vowels.indexOf(userInput[0]) > -1) {
-        newStr = userInput + "way";
-        return newStr;
-    } else {
-      // .match() returns an array of all character index that match a regular expression/pattern
-        // Our pattern looks at any character that is a vowel. If there are no vowels, then we assign firstMatch the value of 0.
-
-      let firstMatch = userInput.match(['a', 'e', 'i', 'o', 'u']) || 0;
-        let vowel = userInput.indexOf(firstMatch[0]);
-        newStr = userInput.substring(vowel) + userInput.substring(0, vowel) + "ay";
-        return newStr;
-    }
       // Remember: console.log is your friend :)
 
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
       return currentWord
+
+      
     })
 
 
@@ -114,7 +132,7 @@ class App extends Component{
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~Tio Jorge and Tio Frank~</footer>
+        <footer>Coded by Jorge, Frank, Ivan, and Davon</footer>
       </>
     )
   }
