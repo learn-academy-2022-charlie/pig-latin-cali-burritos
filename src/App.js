@@ -22,13 +22,13 @@ class App extends Component{
     // no need to change this variable
     let userInput = this.state.phrase.split(" ")
     console.log("userInput:", userInput)
-     // output --> ['alpha', 'through', 'yummy', 'squeal', 'queen', 'fry']
+// output --> ['alpha', 'through', 'yummy', 'squeal', 'queen', 'fry']
     
     // now that we have an array of words, we can map over the array and access each word
     let translatedWordsArray = userInput.map(currentWord => {
 // ACTION ITEM: use "currentWord" as a starting point for your code
         console.log("currentWord:", currentWord)
-          // output --> alpha, through, yummy, squeal, queen, fry
+// output --> alpha, through, yummy, squeal, queen, fry
 
       let vowelsArray = currentWord.split("").filter(vowel => {
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
@@ -37,6 +37,8 @@ class App extends Component{
 // if this works, we're good 
 // make the words that start with vowels come out with 'way' at the end
 // make the words that start with 'qu' keep those two letters together and end with 'ay'
+// when code works, come back and add the punctuation part of the conditional statement
+// split the word into two parts, the one that gets moved backward and the one that gets moved forward      
       if (currentWord[0] === "a" || 
       currentWord[0] === "e" ||
       currentWord[0] === "i" ||
@@ -67,7 +69,7 @@ class App extends Component{
       }
    }
   }
-    }
+}
       // ### Rules of Pig Latin
       // - For words beginning with a vowel, add "way" to the end.
       // - For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
@@ -150,3 +152,8 @@ class App extends Component{
 }
 
 export default App
+
+
+// show off user interface 
+// Frank: what was your teams approach to solving this problem? 
+   // Did the initial approach work out in the end?
