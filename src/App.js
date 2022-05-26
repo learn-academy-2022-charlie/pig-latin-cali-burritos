@@ -26,7 +26,7 @@ class App extends Component{
     
     // now that we have an array of words, we can map over the array and access each word
     let translatedWordsArray = userInput.map(currentWord => {
-// ACTION ITEM: use "currentWord" as a starting point for your code
+    // ACTION ITEM: use "currentWord" as a starting point for your code
         console.log("currentWord:", currentWord)
 // output --> alpha, through, yummy, squeal, queen, fry
 
@@ -37,8 +37,10 @@ class App extends Component{
 // if this works, we're good 
 // make the words that start with vowels come out with 'way' at the end
 // make the words that start with 'qu' keep those two letters together and end with 'ay'
-// when code works, come back and add the punctuation part of the conditional statement
-// split the word into two parts, the one that gets moved backward and the one that gets moved forward      
+// when code works, come back and add a punctuation part of the conditional statement
+// when code works, come back and add the capitalization part of the function
+// split the word into two parts, the one that gets moved backward and modified and the one that gets moved forward      
+
       if (currentWord[0] === "a" || 
       currentWord[0] === "e" ||
       currentWord[0] === "i" ||
@@ -154,6 +156,8 @@ class App extends Component{
 export default App
 
 
-// show off user interface 
+// *Show off user interface* 
 // Frank: what was your teams approach to solving this problem? 
-   // Did the initial approach work out in the end?
+  //We started by adding the code we know for a fact that we would need. Then we added pseudocode to guide us as we moved forward. We added code in increments and moved backwards when our page broke. 
+// Did the initial approach work out in the end?
+   //Negative, we had to restart and spend more time in the planning and researching portion of the code. We didn't get to add all the bells and whistles that we would have wanted to add. 
